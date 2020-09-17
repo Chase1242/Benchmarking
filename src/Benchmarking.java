@@ -28,7 +28,7 @@ public class Benchmarking {
 			
 		}
 		
-		File inFile = new File("input1.txt");
+		File inFile = new File(fileName);
 		Scanner readFile = new Scanner(inFile);
 		
 		sortedNums = intoLL(readFile, sortedNums);
@@ -83,7 +83,7 @@ public class Benchmarking {
 		+ (endTime - startTime));
 		
 		System.out.println("Time converted from nanoseconds to seconds is " + 
-		(double)(endTime - startTime) / 1000000000 + "seconds");
+		(double)(endTime - startTime) / 1000000000 + " seconds");
 		
 		return sortedNums;
 	}
