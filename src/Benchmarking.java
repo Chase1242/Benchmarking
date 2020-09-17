@@ -103,17 +103,17 @@ public class Benchmarking {
 		int min = sortedNums.getFirst();// min is at front
 		long findMin = System.nanoTime();
 		
-		int median = 0;
+		double median = 0.0;
 		int size = sortedNums.size();
 		
 		if (size  % 2 == 0) { 
 			// when size is even, there is no distinct middle, take the two on either side and 
 			// average the two
-			median = (sortedNums.get(size / 2) + sortedNums.get(size / 2 + 1)) / 2;
+			median = (double)(sortedNums.get(size / 2) + sortedNums.get(size / 2 + 1)) / 2;
 			
 		} else {
 			// when size is odd, there is a distinct middle
-			median = sortedNums.get(size / 2);
+			median = (sortedNums.get(size / 2));
 			
 		}
 		
