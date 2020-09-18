@@ -43,40 +43,19 @@ public class Benchmarking {
 	// Returns: LinkedList<Integer>: the sorted LinkedList
 	public static LinkedList<Integer> intoLL(Scanner readFile, LinkedList<Integer> sortedNums) {
 		long startTime = System.nanoTime(); // start timer
+		TreeSet<Integer> treeSort = new TreeSet<Integer>();
 		
 		while (readFile.hasNext()) {
 			int curr = readFile.nextInt();
-			
-			if (sortedNums.isEmpty()) { // case: if LL is empty
-				sortedNums.add(curr);
-					
-			} else {
-				int index = -1; // setting the index to a random value
-				boolean found = false;
-				
-				for (Integer temp : sortedNums) {
-					if (!found) {
-						if (curr < sortedNums.getFirst()) { 
-							// checking if it should go in the first spot
-							index = 0;
-							found = true;
-							
-						} else if (curr < temp) {
-							// checking if it should go somewhere in the middle of the list
-							index = sortedNums.indexOf(temp);
-							found = true;
-							
-						} else if (curr > sortedNums.getLast()) {
-							// checking if it should go in the last spot
-							index = sortedNums.size();
-							found = true;
-							
-						}
-					}
-				}
-				sortedNums.add(index, curr);
+			if (!treeSort.contains(curr)) {
+				treeSort.add(curr);
 			}
 		}
+		
+		for (Integer temp : treeSort) {
+			sortedNums.add(temp);
+		}
+		
 		long endTime = System.nanoTime(); // end time
 		
 		System.out.println("Time to insert in sorted order in nanoseconds is "
@@ -100,7 +79,7 @@ public class Benchmarking {
 		int max = sortedNums.getLast(); // I know I sorted the list woth the max being at the end
 		long findMax = System.nanoTime();
 		
-		int min = sortedNums.getFirst();// min is at front
+		int min = sortedNums.getFirst(); // min is at front
 		long findMin = System.nanoTime();
 		
 		double median = 0.0;
